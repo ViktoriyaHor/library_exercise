@@ -38,13 +38,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "haml-rails", "~> 2.0"
 gem 'friendly_id', '~> 5.2.4'
-gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
 gem "devise", ">= 4.7.1"
 gem 'devise-i18n'
 gem 'figaro'
 gem 'kaminari'
 gem 'font_awesome5_rails'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

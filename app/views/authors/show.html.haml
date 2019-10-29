@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Fullname:
+  = @author.fullname
+
+= link_to 'Edit', edit_author_path(@author)
+\|
+= link_to 'Back', authors_path
