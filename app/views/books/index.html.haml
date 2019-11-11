@@ -1,0 +1,29 @@
+%h1 Listing books
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Img
+      %th Description
+      %th Status
+      %th Author
+      %th
+      %th
+      %th
+
+  %tbody
+    - @books.each do |book|
+      %tr
+        %td= book.name
+        %td= image_tag("#{book.image.url(:thumb)}") if book.image?
+        %td= book.description
+        %td= book.status
+        %td= book.author.fullname
+        %td= link_to 'Show', book
+        %td= link_to 'Edit', edit_book_path(book)
+        %td= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Book', new_book_path

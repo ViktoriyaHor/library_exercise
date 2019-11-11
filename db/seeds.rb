@@ -8,5 +8,14 @@
 require 'faker'
 
 5.times do
-  Author.create(fullname: Faker::Name.name)
+  author = Author.create(fullname: Faker::Book.author)
+  5.times do
+    author.books.create(name: Faker::Book.title,
+                        remote_image_url: Faker::Avatar.image( size: "450x450" ),
+                        description: Faker::Lorem.sentence(word_count: 20),
+                        status: Faker::Boolean.boolean )
+  end
 end
+
+
+
