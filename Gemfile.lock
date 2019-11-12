@@ -143,18 +143,13 @@ GEM
       ruby-vips (>= 2.0.13, < 3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
-    kaminari (1.1.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
     kaminari-actionview (1.1.1)
       actionview
       kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
-      activerecord
-      kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    kaminari-mongoid (1.0.1)
+      kaminari-core (~> 1.0)
+      mongoid
     listen (3.2.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -305,7 +300,8 @@ DEPENDENCIES
   friendly_id (~> 5.2.4)
   haml-rails (~> 2.0)
   jbuilder (~> 2.5)
-  kaminari
+  kaminari-actionview
+  kaminari-mongoid
   listen (>= 3.0.5)
   mini_magick
   mongoid

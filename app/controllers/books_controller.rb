@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :find_authors_all, only: [:new, :edit]
+  before_action :find_authors_all, only: [:new, :create, :edit]
 
   # GET /books
   # GET /books.json
   def index
-    @books = Author.all.map(&:books).flatten
+    @books_array = Author.all.map(&:books).flatten
+    @books = Kaminari.paginate_array(@books_array).page(params[:page]).per(3)
   end
 
   # GET /books/1

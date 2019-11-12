@@ -44,7 +44,9 @@ gem 'mini_magick'
 gem "devise", ">= 4.7.1"
 gem 'devise-i18n'
 gem 'figaro'
-gem 'kaminari'
+
+gem 'kaminari-mongoid'
+gem 'kaminari-actionview'
 gem 'font_awesome5_rails'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
