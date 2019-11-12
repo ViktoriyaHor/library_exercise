@@ -44,7 +44,6 @@ gem 'mini_magick'
 gem "devise", ">= 4.7.1"
 gem 'devise-i18n'
 gem 'figaro'
-
 gem 'kaminari-mongoid'
 gem 'kaminari-actionview'
 gem 'font_awesome5_rails'
