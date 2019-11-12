@@ -41,10 +41,19 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-    RAISE()
     @author = Author.find_by_fullname(params[:book][:author])
+    if @author.books.find(params[:id]).nil?
+      @book.destroy
+      @book = @author.books.new(book_params)
+
+      # raise(1)
+    else
+      @book = @author.books.find(params[:id])
+      @book.update(book_params) && @book.image.cache!
+      # raise(2)
+    end
     respond_to do |format|
-      if @author.books.update(book_params)
+      if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
