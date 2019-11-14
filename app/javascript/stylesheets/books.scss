@@ -1,3 +1,10 @@
+.uk-alert-close {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  color: inherit;
+  opacity: .4;
+}
 .top-wrap::before, .overlay-wrap::before {
   position: absolute;
   top: 0;

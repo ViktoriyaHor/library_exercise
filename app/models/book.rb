@@ -7,4 +7,5 @@ class Book
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
   embedded_in :author
+
 end

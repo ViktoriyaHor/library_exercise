@@ -1,5 +1,6 @@
 - flash.each do |name, message|
-  .container-fluid.p-2
-    %div{:class => "alert #{bootstrap_class_for(name)}"}
-      %button{:class => 'close', "data-dismiss" => 'alert'} &times;
+  %div{:class => "uk-alert-#{uikit_class_for(name)}", "uk-alert" => ""}
+    %p
       = message
+    %a.uk-alert-close{"uk-close" => ""}
+

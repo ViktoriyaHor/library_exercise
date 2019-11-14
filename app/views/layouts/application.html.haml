@@ -8,7 +8,6 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render "layouts/errors"
     / TOP
     .top-wrap.uk-position-relative.uk-background-center-center.uk-background-fixed{"data-src" => "#{asset_path('background.jpg')}", "uk-img" => ""}
       / NAV
@@ -44,8 +43,8 @@
                     %ul.uk-nav.uk-navbar-dropdown-nav
                       - if user_signed_in?
                         %li{:class => current_class?('/profile')}
-                          = link_to 'Profile', profile_path
-                        %lie
+                          -#= link_to 'Profile', profile_path
+                        %li
                           = link_to 'Log out', destroy_user_session_path, method: :delete
                       - else
                         %li{:class => current_class?('/users/sign_in')}
@@ -54,6 +53,8 @@
                           = link_to 'Registration', new_user_registration_path, class: "nav-link"
               %a.uk-navbar-toggle.uk-navbar-item{:class => "uk-hidden@s", "data-uk-navbar-toggle-icon" => "", "data-uk-toggle" => "", :href => "#offcanvas-nav"}
       / /NAV
+      = render "layouts/errors"
+
       .uk-cover-container.uk-flex.uk-flex-middle.top-wrap-height
         / TOP CONTAINER
         .uk-container.uk-flex-auto.top-container.uk-position-relative.uk-margin-meddium-bottom{"data-uk-parallax" => "y: 0,50; easing:0; opacity:0.2"}
@@ -64,15 +65,10 @@
               quis nostrud exercitation ullamco
             %a.uk-button.uk-button-secondary.uk-border-pill{"data-uk-scrollspy-class" => "uk-animation-fade", :href => "#", :title => "Learn More"} LEARN MORE
         / /TOP CONTAINER
-        / TOP IMAGE
-
-        / /TOP IMAGE
       .uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center
         %a{"data-uk-icon" => "icon: arrow-down; ratio: 2", "data-uk-scroll" => "duration: 500", :href => "#content"}
     / /TOP
 
-
-    = image_tag('no-image.jpg', :class => "img-fluid mt-2")
     = yield
 
     %footer.uk-section.uk-section-secondary.uk-padding-remove-bottom
