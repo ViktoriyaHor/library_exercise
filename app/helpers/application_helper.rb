@@ -8,4 +8,8 @@ module ApplicationHelper
         notice: 'alert-info',
     }[name.to_sym] || name
   end
+  def current_class?(test_path)
+    return 'uk-active' if request.path == test_path
+    ''
+  end
 end
