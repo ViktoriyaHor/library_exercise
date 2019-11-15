@@ -13,7 +13,7 @@ require 'faker'
     author.books.create(name: Faker::Book.title,
                         remote_image_url: Faker::Avatar.image( size: "450x450" ),
                         description: Faker::Lorem.sentence(word_count: 20),
-                        status: Faker::Boolean.boolean )
+                        status: false )
   end
 end
 

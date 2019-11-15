@@ -1,20 +1,22 @@
 -#%p#notice= notice
 
-%p
-  %b Name:
+%h1.uk-text-center.uk-margin
   = @book.name
-%p
-  %b Img:
-  = image_tag("#{@book.image.url(:thumb)}") if @book.image?
-%p
-  %b Description:
-  = @book.description
-%p
-  %b Status:
-  = @book.status
-%p
-  %b Author:
-  = @book.author.fullname
+.uk-text-center{:class => 'uk-child-width-expand@s', "uk-grid" => ''}
+  .uk-card.uk-card-default.uk-card-body
+    = image_tag("#{@book.image.url(:thumb)}") if @book.image?
+  .uk-card.uk-card-default.uk-card-body
+    = button_to "Take", book_take_path(status: 1), method: :patch, remote: true
+    %p
+      %b Description:
+      = @book.description
+    %p
+      %b Status:
+      = @book.status
+    %p
+      %b Author:
+      = @book.author.fullname
+
 
 = link_to 'Edit', edit_book_path(@book)
 \|

@@ -33,6 +33,12 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+  has_many :histories
+
+  def books
+    Book.in(id: histories.pluck(:book_id))
+  end
+
   def will_save_change_to_email?
   end
 end

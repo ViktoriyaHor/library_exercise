@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :take]
   before_action :find_authors_all, only: [:new, :create, :edit]
 
   # GET /books
@@ -46,12 +46,9 @@ class BooksController < ApplicationController
     if @author.books.find(params[:id]).nil?
       @book.destroy
       @book = @author.books.new(book_params)
-
-      # raise(1)
     else
       @book = @author.books.find(params[:id])
       @book.update(book_params) && @book.image.cache!
-      # raise(2)
     end
     respond_to do |format|
       if @book.save
@@ -71,6 +68,15 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def take
+    @book.update_attribute(:status, true)
+    respond_to do |format|
+      format.html { redirect_to @book, notice: 'Book was successfully took.' }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 

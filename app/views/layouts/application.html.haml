@@ -22,7 +22,7 @@
                 %li{:class => "uk-visible@m"}
                   %a.uk-icon-link{:href => "", "uk-icon" => "home"}
                 %li
-                  %a{:href => ""} Features
+                  = link_to 'Books', books_path
                 %li
                   %a{"data-uk-icon" => "chevron-down", :href => "#"} Products
                   .uk-navbar-dropdown
@@ -42,20 +42,20 @@
                   .uk-navbar-dropdown
                     %ul.uk-nav.uk-navbar-dropdown-nav
                       - if user_signed_in?
-                        %li{:class => current_class?('/profile')}
+                        %li{:class => current_class('/profile')}
                           -#= link_to 'Profile', profile_path
                         %li
                           = link_to 'Log out', destroy_user_session_path, method: :delete
                       - else
-                        %li{:class => current_class?('/users/sign_in')}
+                        %li{:class => current_class('/users/sign_in')}
                           = link_to 'Sign in', new_user_session_path, class: "nav-link"
-                        %li{:class => current_class?('/users/sign_up')}
+                        %li{:class => current_class('/users/sign_up')}
                           = link_to 'Registration', new_user_registration_path, class: "nav-link"
               %a.uk-navbar-toggle.uk-navbar-item{:class => "uk-hidden@s", "data-uk-navbar-toggle-icon" => "", "data-uk-toggle" => "", :href => "#offcanvas-nav"}
       / /NAV
       = render "layouts/errors"
 
-      .uk-cover-container.uk-flex.uk-flex-middle.top-wrap-height
+      .uk-cover-container.uk-flex.uk-flex-middle.top-wrap-height{:class => root}
         / TOP CONTAINER
         .uk-container.uk-flex-auto.top-container.uk-position-relative.uk-margin-meddium-bottom{"data-uk-parallax" => "y: 0,50; easing:0; opacity:0.2"}
           %div{:class => "uk-width-1-2@s", "data-uk-scrollspy" => "cls: uk-animation-slide-right-medium; target: > *; delay: 150"}
@@ -65,7 +65,7 @@
               quis nostrud exercitation ullamco
             %a.uk-button.uk-button-secondary.uk-border-pill{"data-uk-scrollspy-class" => "uk-animation-fade", :href => "#", :title => "Learn More"} LEARN MORE
         / /TOP CONTAINER
-      .uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center
+      .uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center{:class => root}
         %a{"data-uk-icon" => "icon: arrow-down; ratio: 2", "data-uk-scroll" => "duration: 500", :href => "#content"}
     / /TOP
 
