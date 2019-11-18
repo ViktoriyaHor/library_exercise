@@ -1,8 +1,7 @@
 :plain
-  $('.take').bind('ajax:success', function() {
+  $('.return').on('ajax:success', function() {
     $(this).addClass('uk-hidden');
-    $('.return').removeClass('uk-hidden');
-    $('.status').text('true');
+    $('.take').removeClass('uk-hidden');
+    $('.status').text('false');
     $("#flash").html("<div> #{j render partial: "layouts/errors"} </div>");
   });
-

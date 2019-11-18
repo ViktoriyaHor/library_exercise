@@ -1,6 +1,7 @@
 - flash.each do |name, message|
   %div{:class => "uk-alert-#{uikit_class_for(name)}", "uk-alert" => ""}
+    %a.uk-alert-close{"uk-close" => ""}
     %p
       = message
-    %a.uk-alert-close{"uk-close" => ""}
+
 

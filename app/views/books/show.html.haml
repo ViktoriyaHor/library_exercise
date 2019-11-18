@@ -2,21 +2,37 @@
 
 %h1.uk-text-center.uk-margin
   = @book.name
-.uk-text-center{:class => 'uk-child-width-expand@s', "uk-grid" => ''}
-  .uk-card.uk-card-default.uk-card-body
-    = image_tag("#{@book.image.url(:thumb)}") if @book.image?
-  .uk-card.uk-card-default.uk-card-body
-    = button_to "Take", book_take_path(status: 1), method: :patch, remote: true
-    %p
-      %b Description:
-      = @book.description
-    %p
-      %b Status:
-      = @book.status
-    %p
-      %b Author:
-      = @book.author.fullname
-
+.uk-text-center{:class => 'uk-grid-medium uk-child-width-expand@s uk-grid-match', "uk-grid" => ''}
+  .uk-inline
+    .uk-card.uk-card-default.uk-card-body
+      = image_tag("#{@book.image.url(:thumb)}") if @book.image?
+    %span.uk-position-small.uk-position-top-right
+      - if @book.status == false
+        = link_to "Take", book_take_path(status: 1),
+            method: :patch, remote: true,
+            class: "uk-button uk-button-default take"
+        = link_to "Return", book_return_path(status: 0),
+            method: :patch, remote: true,
+            class: "uk-button uk-button-default uk-hidden return"
+      - else
+        = link_to "Take", book_take_path(status: 1),
+            method: :patch, remote: true,
+            class: "uk-button uk-button-default uk-hidden take"
+        = link_to "Return", book_return_path(status: 0),
+            method: :patch, remote: true,
+            class: "uk-button uk-button-default return"
+  %div
+    .uk-card.uk-card-default.uk-card-body
+      %p
+        %b Status:
+        %span.status
+          = @book.status
+      %p
+        %b Author:
+        = @book.author.fullname
+      %p
+        %b Description:
+        = @book.description
 
 = link_to 'Edit', edit_book_path(@book)
 \|

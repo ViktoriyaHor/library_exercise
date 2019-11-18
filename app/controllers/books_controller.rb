@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :take]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :take, :return]
   before_action :find_authors_all, only: [:new, :create, :edit]
 
   # GET /books
@@ -76,7 +76,16 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @book, notice: 'Book was successfully took.' }
       format.json { head :no_content }
-      format.js   { render :layout => false }
+      format.js { flash.now[:notice] = 'Book was successfully took.' }
+    end
+  end
+
+  def return
+    @book.update_attribute(:status, false)
+    respond_to do |format|
+      format.html { redirect_to @book, notice: 'Book was successfully return.' }
+      format.json { head :no_content }
+      format.js { flash.now[:notice] = 'Book was successfully return.' }
     end
   end
 
