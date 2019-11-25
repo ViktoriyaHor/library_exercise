@@ -7,7 +7,8 @@ require("@rails/activestorage").start()
 require("turbolinks").start()
 require("channels")
 require("jquery")
-
+// window.jQuery = $;
+// window.$ = $;
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 
