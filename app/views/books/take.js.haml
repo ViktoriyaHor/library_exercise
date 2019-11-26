@@ -1,11 +1,10 @@
 :plain
+  $('.take').addClass('uk-hidden');
+  $('.return').removeClass('uk-hidden');
+  $('.status').text('true');
+  $('.history').prepend("#{ j render @history }")
+  $("#flash").html("<div> #{ j render partial: "layouts/errors" } </div>");
 
-    $('.take').bind('ajax:success', function() {
-      $(this).addClass('uk-hidden');
-      $('.return').removeClass('uk-hidden');
-      $('.status').text('true');
-      $("#flash").html("<div> #{j render partial: "layouts/errors"} </div>");
-    });
 
 
 

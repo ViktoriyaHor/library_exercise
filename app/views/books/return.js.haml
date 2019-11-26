@@ -4,6 +4,8 @@
       $(this).addClass('uk-hidden');
       $('.take').removeClass('uk-hidden');
       $('.status').text('false');
+      $('.history tr').first().remove();
+      $('.history').prepend("#{ j render @history }");
       $("#flash").html("<div> #{j render partial: "layouts/errors"} </div>");
     });
 

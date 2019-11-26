@@ -38,17 +38,22 @@
 \|
 = link_to 'Back', books_path
 
-%table.uk-table.uk-table-divider
-  %thead
-    %tr
-      %th Name
-      %th Taken at
-      %th Return at
-  %tbody
-    - @histories.each do |history|
-      %tr
-        %td
-        %td
-          = convert_time(history.created_at)
-        %td
-          = convert_time(history.return_at)
+%ul{"uk-accordion" => ""}
+  %li.uk-open
+    %a.uk-accordion-title{:href => "#"} History
+    .uk-accordion-content
+      %table.uk-table.uk-table-divider.uk-text-right
+        %thead
+          %tr
+            %th Name
+            %th Taken at
+            %th Return at
+        %tbody.history
+          = render @book.histories
+  %li
+    %a.uk-accordion-title{:href => "#"} Comments
+    .uk-accordion-content
+      %p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.
+
+
+
