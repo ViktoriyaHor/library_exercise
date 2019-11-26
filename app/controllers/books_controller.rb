@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @histories = History.find_by_book(params[:id])
+    @histories = History.find_by_book(params[:id]).order('return_at IS NULL, return_at DESC')
   end
 
   # GET /books/new
@@ -77,28 +77,31 @@ class BooksController < ApplicationController
       @book.update_attribute(:status, true)
       @history = @book.histories.create(user_id: current_user.id)
       respond_to do |format|
-        format.html { redirect_to @book, notice: 'Book was successfully took.' }
-        format.json { render json: @history }
         format.js { flash.now[:notice] = 'Book was successfully took.' }
       end
     else
       respond_to do |format|
-        format.html { redirect_to @book, notice: 'You need to sign in or sign up before continuing.' }
-        format.json { head :no_content }
-        format.js { flash.now[:notice] = 'You need to sign in or sign up before continuing.'}
+        format.js { redirect_to book_path(@book), notice: 'You need to sign in or sign up before continuing.'}
       end
     end
-
   end
 
   def return
-    @history = @book.histories.find_by_user(current_user.id).where(return_at: nil).first
-    @history.update_attributes(return_at: Time.now)
-    @book.update_attribute(:status, false)
-    respond_to do |format|
-      format.html { redirect_to @book, notice: 'Book was successfully return.' }
-      format.json { head :no_content }
-      format.js { flash.now[:notice] = 'Book was successfully return.' }
+    if current_user
+      @history = @book.histories.find_by_user(current_user.id).where(return_at: nil).first
+      @history.update_attributes(return_at: Time.now)
+      @book.update_attribute(:status, false)
+      respond_to do |format|
+        format.html { redirect_to @book, notice: 'Book was successfully return.' }
+        format.json { head :no_content }
+        format.js { flash.now[:notice] = 'Book was successfully return.' }
+      end
+    else
+      @history = @book.histories.find_by_user(current_user.id).where(return_at: nil).first
+      raise 111
+      respond_to do |format|
+        format.js { redirect_to book_path(@book), notice: 'You need to sign in or sign up before continuing.'}
+      end
     end
   end
 

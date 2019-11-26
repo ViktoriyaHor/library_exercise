@@ -17,7 +17,7 @@ require 'faker'
   end
 end
 
-user = User.create(email: "user@name.com", password: 'password', password_confirmation: 'password')
+user = User.create(username: "Viktoriya", email: "user@name.com", password: 'password', password_confirmation: 'password')
 user.confirm
 
 

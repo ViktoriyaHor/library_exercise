@@ -1,11 +1,9 @@
 :plain
+  $('.return').after("#{ j render partial: "histories/take" }");
+  $('.return').remove();
+  $('.status').text('false');
+  $('.history tr').first().remove();
+  $('.history').prepend("#{ j render @history }");
+  $("#flash").html("<div> #{j render partial: "layouts/errors"} </div>");
 
-    $('.return').on('ajax:success', function() {
-      $(this).addClass('uk-hidden');
-      $('.take').removeClass('uk-hidden');
-      $('.status').text('false');
-      $('.history tr').first().remove();
-      $('.history').prepend("#{ j render @history }");
-      $("#flash").html("<div> #{j render partial: "layouts/errors"} </div>");
-    });
 
