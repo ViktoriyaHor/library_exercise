@@ -12,7 +12,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @histories = History.find_by_book(params[:id]).order('return_at IS NULL, return_at DESC')
+    @histories = History.find_by_book(params[:id])
+    @comments = Comment.find_by_book(params[:id])
   end
 
   # GET /books/new
@@ -98,7 +99,6 @@ class BooksController < ApplicationController
       end
     else
       @history = @book.histories.find_by_user(current_user.id).where(return_at: nil).first
-      raise 111
       respond_to do |format|
         format.js { redirect_to book_path(@book), notice: 'You need to sign in or sign up before continuing.'}
       end

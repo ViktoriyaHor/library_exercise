@@ -1,0 +1,6 @@
+= form_with(model: [@book, @book.comments.build], id: 'form_comment', remote: true) do |f|
+  .form-group
+    = f.label :body, class: 'control-label '
+    = f.text_area :body, class: 'form-control'
+  .form-group
+    = f.submit 'Save', class: 'btn btn-dark my-4', id: 'btn'

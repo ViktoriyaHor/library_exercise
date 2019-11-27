@@ -13,7 +13,6 @@
         = link_to "Take", book_take_path(status: 1),
             method: :patch, remote: true,
             class: "uk-button uk-button-default take"
-
   %div
     .uk-card.uk-card-default.uk-card-body
       %p
@@ -46,7 +45,13 @@
   %li
     %a.uk-accordion-title{:href => "#"} Comments
     .uk-accordion-content
-      %p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.
+      #comments-section
+        %h5.my-4
+          Add comment
+        #comments
+          = render 'comments/form'
+          - if @book.comments.first.body
+            = render @book.comments
 
 
 

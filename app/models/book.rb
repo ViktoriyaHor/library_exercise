@@ -8,6 +8,7 @@ class Book
   validates :description, presence: true, uniqueness: true
   embedded_in :author
   has_many :histories
+  has_many :comments
 
   def users
     User.in(id: histories.pluck(:user_id))

@@ -1,0 +1,12 @@
+%ul.list-unstyled
+  %hr
+  %li.media
+    .media-body.ml-3
+      - if comment.body?
+        .d-flex.justify-content-between
+          %h5.m-1
+            = comment.user.username
+          - unless comment.id.nil?
+            .date #{time_ago_in_words(comment.created_at)} time ago
+        %p
+          = comment.body
