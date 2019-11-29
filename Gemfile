@@ -46,8 +46,8 @@ gem 'devise-i18n'
 gem 'figaro'
 gem 'kaminari-mongoid'
 gem 'kaminari-actionview'
-gem 'font_awesome5_rails'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'font_awesome5_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

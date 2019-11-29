@@ -1,5 +1,5 @@
 :plain
-  $('#comments').append("#{ j(render @comment)}")
+  $('.comments').prepend("#{ j(render @comment)}")
   $('#comment_body').val('')
   $("#flash").html("<div> #{j render partial: "layouts/errors"} </div>");
 

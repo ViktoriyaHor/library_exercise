@@ -5,14 +5,17 @@
     .uk-card.uk-card-default.uk-card-body
       = image_tag("#{@book.image.url(:thumb)}") if @book.image?
     %span.uk-position-small.uk-position-top-right
-      - if @book.status == true && current_user && @history
-        = link_to "Return", book_return_path(status: 0),
-            method: :patch,
-            class: "uk-button uk-button-default return"
-      - if @book.status == false
-        = link_to "Take", book_take_path(status: 1),
-            method: :patch, remote: true,
-            class: "uk-button uk-button-default take"
+      .uk-flex.uk-flex-around
+        .div
+          - if @book.status == true && current_user && @history
+            = link_to "Return", book_return_path(status: 0),
+                method: :patch,
+                class: "uk-button uk-button-default return"
+          - if @book.status == false
+            = link_to "Take", book_take_path(status: 1),
+                method: :patch, remote: true,
+                class: "uk-button uk-button-default take"
+        = render 'comments/stars'
   %div
     .uk-card.uk-card-default.uk-card-body
       %p
@@ -25,10 +28,10 @@
       %p
         %b Description:
         = @book.description
-
-= link_to 'Edit', edit_book_path(@book)
-\|
-= link_to 'Back', books_path
+.uk-flex.uk-flex-left
+  = link_to 'Edit', edit_book_path(@book)
+  \|
+  = link_to 'Back', books_path
 
 %ul{"uk-accordion" => ""}
   %li.uk-open
@@ -43,13 +46,11 @@
         %tbody.history
           = render @book.histories
   %li
-    %a.uk-accordion-title{:href => "#"} Comments
+    %a.uk-accordion-title{:href => "#"} Reviews
     .uk-accordion-content
       #comments-section
-        %h5.my-4
-          Add comment
-        #comments
-          = render 'comments/form'
+        = render 'comments/form'
+        .comments
           - if @book.comments.first.body
             = render @book.comments
 

@@ -1,11 +1,16 @@
-%ul.list-unstyled
-  %hr
-  %li.media
-    .media-body.ml-3
-      - if comment.body?
+- if comment.body?
+  %ul.list-unstyled
+    %hr
+    %li
+      .ml-3
         .d-flex.justify-content-between
           %h5.m-1
             = comment.user.username
+          .div
+            - comment.rating.times do
+              %span.fas.fa-star
+            - (5 - comment.rating).times do
+              %span.far.fa-star
           - unless comment.id.nil?
             .date #{time_ago_in_words(comment.created_at)} time ago
         %p
