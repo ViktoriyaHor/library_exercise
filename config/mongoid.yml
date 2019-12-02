@@ -11,7 +11,7 @@ test:
 production:
   clients:
     default:
-      uri: 'mongodb://heroku_hqjd9qb8:1ep8rtiumo31e0vnsbi192371e@ds351428.mlab.com:51428/heroku_hqjd9qb8'
+      uri:  <%= ENV['MONGODB_URI'] %>
       options:
         read:
           mode: :primary
