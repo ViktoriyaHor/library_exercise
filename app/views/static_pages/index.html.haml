@@ -1,1 +1,24 @@
 %h1.text-center= @title
+%table
+  %thead
+    %tr
+      %th Name
+      %th Img
+      %th Description
+      %th Status
+      %th Author
+      %th Raiting
+      %th
+      %th
+
+  %tbody
+    - @comments.each  do |comment|
+      %tr
+        %td
+          = link_to "#{find_book(comment).name}", find_book(comment)
+        %td= image_tag("#{find_book(comment).image.url(:thumb)}") if find_book(comment).image?
+        %td= find_book(comment).description
+        %td= find_book(comment).status
+        %td= find_book(comment).author.fullname
+        %td= render 'comments/stars', :@average_rating => raiting_book(comment)
+

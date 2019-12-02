@@ -4,4 +4,7 @@
       %span.fas.fa-star
     - (5 - @average_rating).times do
       %span.far.fa-star
-  = @ratings_count
+  -else
+    - 5.times do
+      %span.far.fa-star
+  = @ratings_count if controller_name == "books"

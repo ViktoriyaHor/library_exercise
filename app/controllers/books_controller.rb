@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     @histories = History.find_by_book(params[:id])
     @comments = Comment.find_by_book(params[:id])
     @ratings_count = Comment.find_by_book(params[:id]).not_in(:rating=>0).count
-    @sum_rating = Comment.sum(:rating)
+    @sum_rating = Comment.find_by_book(params[:id]).sum(:rating)
     @average_rating = (@sum_rating.to_f/@ratings_count).round if @ratings_count > 0
   end
 

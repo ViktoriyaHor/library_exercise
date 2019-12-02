@@ -1,6 +1,13 @@
 class StaticPagesController < ApplicationController
   def index
-    @title = 'Welcome'
-    @comments =  Comment.find_by_book(params[:id]).count
+    @title = 'Popular books'
+    @comments = Comment.collection.aggregate([
+    {"$group" => {
+        "_id" => "$book_id",
+        "rating" => {"$sum" => "$rating"}
+    }},
+    {"$sort" => { "rating" => -1}}
+])
+
   end
 end
