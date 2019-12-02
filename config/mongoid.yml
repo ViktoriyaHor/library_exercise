@@ -162,7 +162,6 @@ test:
 production:
   clients:
     default:
-      database: <%= ENV['DATABASE'] %>
       uri: <%= ENV['MLAB_URI'] %>
       options:
         connect_timeout: 15
