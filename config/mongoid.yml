@@ -1,3 +1,22 @@
+test:
+  clients:
+    default:
+      database: <%= ENV['DATABASE'] %>
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+production:
+  clients:
+    default:
+      uri:  <%= ENV['MONGODB_URI'] %>
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
 development:
   # Configure available database clients. (required)
   clients:
@@ -5,7 +24,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: <%= ENV['DATABASE'] %>
+      database: library_exercise_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -149,20 +168,3 @@ development:
     # Application name that is printed to the mongodb logs upon establishing a
     # connection in server versions >= 3.4. Note that the name cannot exceed 128 bytes.
     # app_name: MyApplicationName
-test:
-  clients:
-    default:
-      database: <%= ENV['DATABASE'] %>
-      hosts:
-        - localhost:27017
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
-production:
-  clients:
-    default:
-      database: <%= ENV['DATABASE'] %>
-      uri: <%= ENV['MLAB_URI'] %>
-      options:
-        connect_timeout: 15
