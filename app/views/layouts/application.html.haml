@@ -5,8 +5,8 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title LibraryExercise
     = csrf_meta_tags
-    -#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    -#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     / TOP
     .top-wrap.uk-position-relative.uk-background-center-center.uk-background-fixed{"data-src" => "#{asset_path('background.jpg')}", "uk-img" => ""}
