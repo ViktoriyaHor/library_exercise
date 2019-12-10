@@ -14,6 +14,6 @@
     "uikit": "^3.2.3"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.8.2"
+    "webpack-dev-server": "^3.9.0"
   }
 }
