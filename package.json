@@ -11,13 +11,9 @@
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0",
-    "uikit": "^3.2.3",
-    "webpack": "^4.0.0"
+    "uikit": "^3.2.3"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.9.0"
-  },
-  "engines": {
-    "node": "12.10.0"
+    "webpack-dev-server": "^3.8.2"
   }
 }
