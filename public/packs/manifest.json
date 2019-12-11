@@ -1,0 +1,44 @@
+{
+  "application.js": "/packs/js/application-4ce5ecb96275ec73543f.js",
+  "application.js.map": "/packs/js/application-4ce5ecb96275ec73543f.js.map",
+  "bootstrap_custom.js": "/packs/js/bootstrap_custom-7613420968e05fcb2c5f.js",
+  "bootstrap_custom.js.map": "/packs/js/bootstrap_custom-7613420968e05fcb2c5f.js.map",
+  "comment.js": "/packs/js/comment-17d71eddca931ef3773d.js",
+  "comment.js.map": "/packs/js/comment-17d71eddca931ef3773d.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-4ce5ecb96275ec73543f.js"
+      ],
+      "js.map": [
+        "/packs/js/application-4ce5ecb96275ec73543f.js.map"
+      ]
+    },
+    "bootstrap_custom": {
+      "js": [
+        "/packs/js/bootstrap_custom-7613420968e05fcb2c5f.js"
+      ],
+      "js.map": [
+        "/packs/js/bootstrap_custom-7613420968e05fcb2c5f.js.map"
+      ]
+    },
+    "comment": {
+      "js": [
+        "/packs/js/comment-17d71eddca931ef3773d.js"
+      ],
+      "js.map": [
+        "/packs/js/comment-17d71eddca931ef3773d.js.map"
+      ]
+    }
+  },
+  "media/webfonts/fa-regular-400.eot": "/packs/media/webfonts/fa-regular-400-c1a866ec.eot",
+  "media/webfonts/fa-regular-400.svg": "/packs/media/webfonts/fa-regular-400-7b9568e6.svg",
+  "media/webfonts/fa-regular-400.ttf": "/packs/media/webfonts/fa-regular-400-65b286af.ttf",
+  "media/webfonts/fa-regular-400.woff": "/packs/media/webfonts/fa-regular-400-c4f508e7.woff",
+  "media/webfonts/fa-regular-400.woff2": "/packs/media/webfonts/fa-regular-400-f5f2566b.woff2",
+  "media/webfonts/fa-solid-900.eot": "/packs/media/webfonts/fa-solid-900-8e4a6dcc.eot",
+  "media/webfonts/fa-solid-900.svg": "/packs/media/webfonts/fa-solid-900-c2801fb4.svg",
+  "media/webfonts/fa-solid-900.ttf": "/packs/media/webfonts/fa-solid-900-0bff33a5.ttf",
+  "media/webfonts/fa-solid-900.woff": "/packs/media/webfonts/fa-solid-900-333bae20.woff",
+  "media/webfonts/fa-solid-900.woff2": "/packs/media/webfonts/fa-solid-900-44d537ab.woff2"
+}
