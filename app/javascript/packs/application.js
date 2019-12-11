@@ -14,7 +14,7 @@ import Icons from 'uikit/dist/js/uikit-icons';
 
 UIkit.use(Icons);
 
-import '../stylesheets/application';
+import '../stylesheets/application.scss';
 import './bootstrap_custom.js'
 import './comment.js'
 
