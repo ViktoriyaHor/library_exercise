@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "haml-rails", "~> 2.0"
 gem 'friendly_id', '~> 5.2.4'
-
+gem "fog-aws"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
 gem "devise", ">= 4.7.1"
