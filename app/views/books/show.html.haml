@@ -29,9 +29,9 @@
         %b Description:
         = @book.description
 .uk-flex.uk-flex-left
-  = link_to 'Edit', edit_book_path(@book)
+  = link_to 'Edit', edit_book_path(@book), class: 'uk-link-heading'
   \|
-  = link_to 'Back', books_path
+  = link_to 'Back', books_path, class: 'uk-link-heading'
 
 %ul{"uk-accordion" => ""}
   %li.uk-open

@@ -1,31 +1,32 @@
-- if @book
-  = form_for @book do |f|
-    - if @book.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@book.errors.count, "error")} prohibited this book from being saved:"
-        %ul
-          - @book.errors.full_messages.each do |message|
-            %li= message
+.uk-flex.uk-flex-center.uk-flex-row
+  - if @book
+    = form_for @book do |f|
+      - if @book.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@book.errors.count, "error")} prohibited this book from being saved:"
+          %ul
+            - @book.errors.full_messages.each do |message|
+              %li= message
 
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :img
-      = f.file_field :image
-    .field
-      = f.label :description
-      = f.text_area :description
-    .field
-      = f.label :status
-      = f.check_box :status
-    .field
-      = f.label :author
-      -if form_for_new?
-        = f.select :author, @authors.collect(&:fullname), :required => true
-      -else
-        = f.select :author, options_for_select(@authors.collect(&:fullname),
-        :selected => @book.author.fullname),
-        :required => true
-    .action
-      = f.submit 'Save'
+      .field.uk-margin
+        = f.label :name
+        = f.text_field :name, class: 'uk-input uk-form-width-large'
+      .field.uk-margin
+        = f.label :img
+        = f.file_field :image
+      .field.uk-margin
+        = f.label :description
+        = f.text_area :description, class: 'uk-input uk-form-width-large'
+      .field.uk-margin
+        = f.label :status
+        = f.check_box :status
+      .field.uk-margin
+        = f.label :author
+        -if form_for_new?
+          = f.select :author, @authors.collect(&:fullname), :required => true
+        -else
+          = f.select :author, options_for_select(@authors.collect(&:fullname),
+          :selected => @book.author.fullname),
+          :required => true
+      .action.uk-text-center
+        = f.submit 'Save', class: 'uk-button uk-button-default uk-margin-large-bottom'

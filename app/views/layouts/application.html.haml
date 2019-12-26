@@ -16,11 +16,11 @@
           %nav.uk-navbar.uk-navbar-container.uk-navbar-transparent{"data-uk-navbar" => ""}
             .uk-navbar-left
               .uk-navbar-item.uk-padding-remove-horizontal
-                %a.uk-logo{:href => "", :title => "BOOKS"} BOOKS
+                %a.uk-logo{:href => "/", :title => "BOOKS"} BOOKS
             .uk-navbar-right
               %ul.uk-navbar-nav{:class => "uk-visible@s"}
                 %li{:class => "uk-visible@m"}
-                  %a.uk-icon-link{:href => "", "uk-icon" => "home"}
+                  %a.uk-icon-link{:href => "/", "uk-icon" => "home"}
                 %li
                   = link_to 'Books', books_path
                 -#%li
@@ -64,13 +64,13 @@
             %p.subtitle-text{:class => "uk-visible@s"}
               Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
               quis nostrud exercitation ullamco
-            %a.uk-button.uk-button-secondary.uk-border-pill{"data-uk-scrollspy-class" => "uk-animation-fade", :href => "#", :title => "Learn More"} LEARN MORE
+            = link_to 'Registration', new_user_registration_path, class: 'uk-button uk-button-secondary uk-border-pill', "data-uk-scrollspy-class" => "uk-animation-fade"
         / /TOP CONTAINER
       .uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center{:class => root}
         %a{"data-uk-icon" => "icon: arrow-down; ratio: 2", "data-uk-scroll" => "duration: 500", :href => "#content"}
     / /TOP
-
-    = yield
+    .uk-container.uk-margin-large-top
+      = yield
 
     %footer.uk-section.uk-section-secondary.uk-padding-remove-bottom
       .uk-container
