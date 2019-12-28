@@ -46,7 +46,7 @@ gem 'devise-i18n'
 gem 'figaro'
 gem 'kaminari-mongoid'
 gem 'kaminari-actionview'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 gem 'font_awesome5_rails'
 
 group :development, :test do
@@ -55,6 +55,17 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-maintenance'
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'database_cleaner', '~> 1.7'
+  gem 'rails-controller-testing'
+  gem 'mongoid-rspec'
+
 end
 
 group :development do

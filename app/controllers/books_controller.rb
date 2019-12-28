@@ -87,7 +87,7 @@ class BooksController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js { redirect_to book_path(@book), notice: 'You need to sign in or sign up before continuing.'}
+        format.js { redirect_to book_path(@book), alert: 'You need to sign in or sign up before continuing.'}
       end
     end
   end

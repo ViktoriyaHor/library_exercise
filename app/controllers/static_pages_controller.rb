@@ -6,7 +6,8 @@ class StaticPagesController < ApplicationController
         "_id" => "$book_id",
         "rating" => {"$sum" => "$rating"}
     }},
-    {"$sort" => { "rating" => -1}}
+    {"$sort" => { "rating" => -1}},
+    { "$limit" => 5 }
 ])
 
   end
