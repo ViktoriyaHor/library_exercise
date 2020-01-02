@@ -46,7 +46,6 @@ gem 'devise-i18n'
 gem 'figaro'
 gem 'kaminari-mongoid'
 gem 'kaminari-actionview'
-
 gem 'font_awesome5_rails'
 
 group :development, :test do
@@ -65,7 +64,6 @@ group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'rails-controller-testing'
   gem 'mongoid-rspec'
-
 end
 
 group :development do

@@ -1,14 +1,12 @@
-
 FactoryBot.define do
 
   factory :author do
     fullname { Faker::Book.author }
 
-    #
-    #factory :author_with_books do
-    #  after(:create) do |author|
-    #    create :book, author: author
-    #  end
-    #end
+    factory :author_with_books do
+      after(:create) do |author|
+        create :book, author: author
+      end
+    end
   end
 end
