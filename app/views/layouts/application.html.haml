@@ -66,8 +66,8 @@
               quis nostrud exercitation ullamco
             = link_to 'Registration', new_user_registration_path, class: 'uk-button uk-button-secondary uk-border-pill', "data-uk-scrollspy-class" => "uk-animation-fade"
         / /TOP CONTAINER
-      .uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center{:class => root}
-        %a{"data-uk-icon" => "icon: arrow-down; ratio: 2", "data-uk-scroll" => "duration: 500", :href => "#content"}
+      -#.uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center{:class => root}
+      -#  %a{"data-uk-icon" => "icon: arrow-down; ratio: 2", "data-uk-scroll" => "duration: 500", :href => "#content"}
     / /TOP
     .uk-container.uk-margin-large-top
       = yield

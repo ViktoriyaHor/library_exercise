@@ -55,23 +55,19 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "library_exercise_production"
+  # config.active_job.queue_name_prefix = "library_exercise_production
 
-
-
-  #config.action_mailer.default_url_options = { host: ENV['HOST'] }
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = {
-  #    address: 'smtp.gmail.com',
-  #    port: 587,
-  #    domain: 'gmail.com',
-  #    user_name: ENV['USERNAME'],
-  #    password: ENV['PASSWORD'],
-  #    authentication: :plain,
-  #    enable_starttls_auto: true
-  #}
-  #
-  #
+  config.action_mailer.default_url_options = { host: ENV['HOST'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'gmail.com',
+      user_name: ENV['USERNAME'],
+      password: ENV['PASSWORD'],
+      authentication: :plain,
+      enable_starttls_auto: true
+  }
 
   config.action_mailer.perform_caching = true
   # Ignore bad email addresses and do not raise email delivery errors.
