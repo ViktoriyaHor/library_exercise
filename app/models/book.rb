@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Book
   include Mongoid::Document
   field :name, type: String
@@ -9,7 +11,4 @@ class Book
   embedded_in :author
   has_many :histories
   has_many :comments
-  #def users
-  #  User.in(id: histories.pluck(:user_id))
-  #end
 end

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class Comment
   include Mongoid::Document
   include Mongoid::Timestamps::Created
   field :body, type: String
-  field :rating, type: Integer, default: ->{ '0' }
+  field :rating, type: Integer, default: -> { '0' }
 
   validates :body, presence: true
-  validates :rating, presence: true, numericality: { less_than_or_equal_to: 5,  only_integer: true }
+  validates :rating, presence: true, numericality: { less_than_or_equal_to: 5, only_integer: true }
 
   belongs_to :user
   belongs_to :book

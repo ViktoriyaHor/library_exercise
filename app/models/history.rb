@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class History
 
   include Mongoid::Document
   include Mongoid::Timestamps::Created
   field :return_at, type: Time
-  validates :return_at, presence: true
 
   belongs_to :user
   belongs_to :book

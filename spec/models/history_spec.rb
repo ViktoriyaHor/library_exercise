@@ -1,26 +1,24 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe History, type: :model do
 
   it { is_expected.to be_mongoid_document }
-  it { is_expected.to have_timestamps.for(:creating) }
+  it { is_expected.to have_timestamps.for :creating }
 
   describe 'validations' do
     subject(:history) { build(:history) }
 
-    context 'presence' do
-      it { is_expected.to validate_presence_of(:return_at) }
-    end
-
     context 'exist fields of types' do
       %i[created_at return_at].each do |field|
-        it { is_expected.to have_field(field).of_type(Time) }
+        it { is_expected.to have_field(field).of_type Time }
       end
     end
 
     context 'association' do
-      it { is_expected.to belong_to(:user) }
-      it { is_expected.to belong_to(:book) }
+      it { is_expected.to belong_to :user }
+      it { is_expected.to belong_to :book }
     end
   end
 
@@ -32,7 +30,7 @@ RSpec.describe History, type: :model do
 
     context 'self.find_by_book(id)' do
       it "retuns data with a valid parameter" do
-        expect(History.find_by_book(book.id).to_a).to eq([history])
+        expect(History.find_by_book(book.id).to_a).to eq [history]
       end
 
       it "retuns nil with a parameter nil" do
@@ -42,7 +40,7 @@ RSpec.describe History, type: :model do
 
     context 'self.find_by_user(id)' do
       it "retuns data with a valid parameter" do
-        expect(History.find_by_user(user.id).to_a).to eq([history])
+        expect(History.find_by_user(user.id).to_a).to eq [history]
       end
 
       it "retuns nil with a parameter nil" do
@@ -57,7 +55,7 @@ RSpec.describe History, type: :model do
     let!(:history2) { create(:history, created_at: DateTime.now + 1) }
 
     it "retuns order by created_at: :desc" do
-      expect(History.all.to_a).to eq([history2, history1])
+      expect(History.all.to_a).to eq [history2, history1]
     end
   end
 end
