@@ -5,11 +5,11 @@
 %table
   %thead
     %tr
-      %th Name
       %th Img
+      %th Name
+      %th Author
       %th Description
       %th Status
-      %th Author
       %th
       %th
       %th
@@ -17,12 +17,12 @@
   %tbody
     - @books.each do |book|
       %tr
+        %td= image_tag("#{book.image.url(:thumb)}") if book.image?
         %td
           = link_to "#{book.name}", book, class: 'uk-link-heading'
-        %td= image_tag("#{book.image.url(:thumb)}") if book.image?
+        %td= book.author.fullname
         %td= book.description
         %td= book.status
-        %td= book.author.fullname
         %td
           = link_to edit_book_path(book), class: 'uk-margin-right uk-link-heading' do
             %span.fas.fa-pencil-alt

@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
 
   def create
-    @book = Author.all.map{|a| a.books.find(params[:book_id])}.compact.first
+
+    @book = Author.all.map { |a| a.books.find(params[:book_id]) }.compact.first
     if current_user
-      @comment = @book.comments.new(comment_params.merge( { user_id: current_user.id } ))
+      @comment = @book.comments.new(comment_params.merge({ user_id: current_user.id }))
       respond_to do |format|
         if @comment.save
           format.js { flash.now[:notice] = 'Comment was successfully created.' }
@@ -13,7 +16,7 @@ class CommentsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js { redirect_to book_path(@book), notice: 'You need to sign in or sign up before continuing.'}
+        format.html { redirect_to book_path(@book), notice: 'You need to sign in or sign up before continuing.' }
       end
     end
   end

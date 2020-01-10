@@ -1,22 +1,6 @@
 # Library exercise
 
-Test exercise for Rails developers.
-First of all - this is test task which purpose is to check the level of candidate knowledge and process of thinking.
-So don't be upset if you have not finished. Commit and push regularly so i can see how you think. This is important! Do not push whole app in the one commit.
-Be creative, some details are missing. The way you deal with them will also be a score for your final result.
-
-So, imagine you have an own library and you want a site to see what books you have, how many are taken, the status, history etc.
-
-Follow current technology stack:
-Ruby 2.4, Rails 5+, Mysql/PostreSQL/MongoDB(mongo is preferred), Bootstrap, Rspec.
-  Pages should not be 'responsive', just make them look nice on mobile devices.
-# What should you do
-
-##### First of all, fork it.
-1. Books page. The list with all the books, 20 per page. Shows basic info:
-
-    ![Example](app/assets/images/lb.jpeg)
-
+Books page: the list with all the books, 20 per page. Shows basic info:
     * Image
     * Book name - this is a link to book /show page.
     * Author
@@ -24,10 +8,7 @@ Ruby 2.4, Rails 5+, Mysql/PostreSQL/MongoDB(mongo is preferred), Bootstrap, Rspe
     * Edit, delete and create new book.
     Top 5 books based on likes count and taken count. Top books are displayed regardless of pagination.
     
-1. Book page. Verbose information about a book.
-
-    ![Example](app/assets/images/lb1.jpeg)
-
+Each book has the information:
     * Image
     * Name
     * Description
@@ -36,17 +17,57 @@ Ruby 2.4, Rails 5+, Mysql/PostreSQL/MongoDB(mongo is preferred), Bootstrap, Rspe
     * Status
     * Comments
     * History    
-    
     History includes: name of user who took a book, when book has been taked, when returned back.    
     User allowed to comment, edit, delete, like, take or return a book.
+    Take, return, like book without page reloading.
 
-1. Book form. Nothing to say more here.
+## Getting Started
 
-# What we expect
-We expect as much functionality as you can do with established time for you. **Do not try to cheat and spend more time.** Quality of code/work is more important then quantity of work done. 
-#### Will be a huge plus but not necessary:
-* Test coverage with rspec.
-* Respond with json. Serializers are preferred.
-* Bootstrap components like modal windows, panels etc. including mobile and desktop grid.
-* Delete, take, return, like book without page reloading.
-* Book rating (any formula)
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+You must install ruby 2.6.3 and gem install bundler. 
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Create gemset test_sales_history and install gem's. 
+Execute commands:
+
+```
+$ rvm gemset create library
+$ rvm use 2.6.3@library
+$ bundle
+```
+Then execute commands for db seed:
+
+```
+$ rake db:seed
+```
+
+## Running the tests
+
+Please do to run the automated tests for this system (model's and controller's tests)
+
+```
+$ rspec spec -fd
+```
+## Deployment
+
+I deployed project on Heroku
+
+https://fathomless-bastion-12372.herokuapp.com
+
+## Built With
+
+I used Ruby 2.6.3, Rails 6, MongoDB, UIkit, for the tests - rspec
+
+## Author
+
+Viktoriya Khoroshun
+
+
+
+

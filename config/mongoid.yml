@@ -1,7 +1,7 @@
 test:
   clients:
     default:
-      database: <%= ENV['DATABASE'] %>
+      database: library_exercise_test
       hosts:
         - localhost:27017
       options:
